@@ -1,0 +1,80 @@
+<!-- <app-user-page></app-user-page> -->
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+<div class = "register-wrapper">
+    <div class="card">
+    <div class="card-body">
+<div class="panel panel-primary" *ngFor="let account of accounts">
+<div class="panel-heading">
+    <h3 class="panel-title">{{account.AccountNumber}}</h3>
+  </div>
+  <div class="panel-body">
+
+    <div class="col-xs-10">
+
+      <!-- <div class="row vertical-align"> -->
+
+        <!-- <div class="col-xs-3">
+          <img class="imageClass" [src]="register.photoPath" />
+        </div> -->
+        <div class="col-xs-9">
+
+          <div class="row">
+            <div class="col-xs-6">
+                AccountNumber
+            </div>
+            <div class="col-xs-6">
+              : {{account.AccountNumber}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+                AccountType
+            </div>
+            <div class="col-xs-6">
+              : {{account.AccountType }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+                Balance
+            </div>
+            <div class="col-xs-6">
+              : {{account.Balance}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+                LastTransactionDate
+            </div>
+            <div class="col-xs-6">
+              : {{account.LastTransactionDate}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+                LastTransactionTime
+            </div>
+            <div class="col-xs-6">
+              : {{account.LastTransactionTime}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <a class="nav-link active" href="../transaction">
+                Mini Statement
+            </a>
+            </div>
+          </div>
+          
+          
+
+        </div>
+
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</main>

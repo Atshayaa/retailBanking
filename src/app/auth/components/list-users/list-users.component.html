@@ -1,0 +1,54 @@
+<div class = "register-wrapper">
+    <div class="card">
+    <div class="card-body">
+<div class="panel panel-primary" *ngFor="let register of registers">
+<div class="panel-heading">
+    <h3 class="panel-title">{{register.fullName}}</h3>
+  </div>
+  <div class="panel-body">
+
+    <div class="col-xs-10">
+
+      <!-- <div class="row vertical-align"> -->
+
+        <!-- <div class="col-xs-3">
+          <img class="imageClass" [src]="register.photoPath" />
+        </div> -->
+        <div class="col-xs-9">
+
+          <div class="row">
+            <div class="col-xs-6">
+                fullName
+            </div>
+            <div class="col-xs-6">
+              : {{register.fullName}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+                userId
+            </div>
+            <div class="col-xs-6">
+              : {{register.userId }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+                email
+            </div>
+            <div class="col-xs-6">
+              : {{register.email}}
+            </div>
+          </div>
+          
+          
+
+        </div>
+
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>

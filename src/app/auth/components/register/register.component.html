@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <a class="navbar-brand" >Retail Banking</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample02">
+    <ul class="navbar-nav mr-auto">
+      
+      <li class="nav-item active">
+        <a class="nav-link" href="../login">Login <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../register">Register</a>
+      </li>
+    </ul>
+  </div> 
+</nav>
+
+<div class = "register-wrapper">
+    <div class="card">
+    <div class="card-body">
+
+<form  #registerForm="ngForm" (ngSubmit)="saveRegister(registerForm)">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Register</h3>
+      </div>
+      <div class="panel-body">
+  
+        <div class="form-group"  [class.has-error]="fullNameControl.invalid && fullNameControl.touched" [class.has-success]="fullNameControl.valid">
+          <label for="fullName">Full Name</label>
+          <input id="fullName" type="text" class="form-control"
+                 name="fullName" [(ngModel)]="fullName" ng-minlength="3" 
+                 ng-maxlength="8" #fullNameControl="ngModel" required>
+                
+          <span class="help-block"
+                 *ngIf="fullNameControl.invalid && fullNameControl.touched">
+             Full Name is required
+           </span>
+           <div class="help-block"
+           ng-messages="registerForm.fullName.$error" ng-if="registerForm.fullName.$touched">
+           <p ng-message="minlength">Your name is too short.</p>
+           <p ng-message="maxlength">Your name is too long.</p>
+           <p ng-message="required">Your name is required.</p>
+          </div>      
+        </div>
+
+        <div class="form-group" [class.has-error]="userIdControl.invalid && userIdControl.touched" [class.has-success]="userIdControl.valid">
+            <label for="userId">User Id</label>
+            <input id="userId" type="number" class="form-control"
+                   name="userId" [(ngModel)]="userId" #userIdControl="ngModel" required>
+                   <span class="help-block"
+                 *ngIf="userIdControl.invalid && userIdControl.touched">
+                 User Id is required
+           </span> 
+        </div>
+  
+        <div class="form-group" [class.has-error]="emailControl.invalid && emailControl.touched" [class.has-success]="emailControl.valid">
+          <label for="email">Email</label>
+          <input id="email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" type="text" class="form-control"
+                 name="email" [(ngModel)]="email" #emailControl="ngModel" required>
+                 <span class="help-block"
+                 *ngIf="emailControl.errors?.required && emailControl.touched">
+                 Email is required
+           </span> 
+           <span class="help-block" *ngIf="emailControl.errors?.pattern && emailControl.touched">
+            Email is Invalid
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="passwordControl.invalid && passwordControl.touched" [class.has-success]="passwordControl.valid">
+            <label for="password">Password</label>
+            <input id="password" pattern="^[a-z]+[A-Z]+[0-9]" type="text" class="form-control"
+                   name="password" [(ngModel)]="password" #passwordControl="ngModel" required>
+                   <span class="help-block"
+                   *ngIf="passwordControl.errors?.required && passwordControl.touched">
+                 Password is required
+           </span> 
+           <span class="help-block" *ngIf="passwordControl.errors?.pattern && passwordControl.touched">
+            Password should contain lowercase, uppercase and a number
+          </span>
+        </div>
+  
+      </div>
+      <div class="panel-footer">
+        <button class="btn btn-primary" type="submit" [disabled]="registerForm.invalid">Save</button>
+      </div>
+    </div>
+  </form>
+
+</div>
+</div>
+</div>
+
+
+  {{registerForm.value | json}}
