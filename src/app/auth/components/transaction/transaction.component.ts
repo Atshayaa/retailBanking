@@ -9,6 +9,7 @@ import { transactionService } from '../transaction/transactionService.service';
 })
 export class TransactionComponent implements OnInit {
 
+  show:boolean = true;
   transactions : Transaction[];
 
   constructor(private _transactionService : transactionService ) {}

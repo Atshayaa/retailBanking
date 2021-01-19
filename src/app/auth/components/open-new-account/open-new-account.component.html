@@ -1,0 +1,135 @@
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="3">Hii User</a>
+    <a class="navbar-brand col-lg-2 mr-0 px-3" href="../profile">Profile</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+        data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <a class="navbar-brand  col-lg-2   mr-0  px-3 " href="../userpage">Back</a>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="../login">Sign out</a>
+        </li>
+    </ul>
+</nav>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="sidebar-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../openNewAccount">
+                            <span data-feather="home"></span>
+                            Open new Account <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../transaction">
+                            <span data-feather="shopping-cart"></span>
+                            Transaction Details
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../account">
+                            <span data-feather="users"></span>
+                            Account Summary
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="register-wrapper">
+                <div class="card">
+                    <div class="card-body">
+
+                        <form #addAccountDetailsForm="ngForm" (ngSubmit)="saveRegister(addAccountDetailsForm)">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Add Account Details</h3>
+                                </div>
+                                <div class="panel-body">
+
+                                    <div class="form-group"
+                                        [class.has-error]="accountNumberControl.invalid && accountNumberControl.touched"
+                                        [class.has-success]="accountNumberControl.valid">
+                                        <label for="accountNumber"> AccountNumber</label>
+                                        <input id="accountNumber" type="text" class="form-control" name="accountNumber"
+                                            [(ngModel)]="accountNumber" #accountNumberControl="ngModel" required>
+                                        <span class="help-block"
+                                            *ngIf="accountNumberControl.invalid && accountNumberControl.touched">
+                                            AccountNumber is required
+                                        </span>
+                                    </div>
+
+                                    <div class="form-group"
+                                        [class.has-error]="accountTypeControl.invalid && accountTypeControl.touched"
+                                        [class.has-success]="accountTypeControl.valid">
+                                        <label for="accountType">AccountType</label>
+                                        <input id="accountType" type="text" class="form-control" name="accountType"
+                                            [(ngModel)]="accountType" #accountTypeControl="ngModel" required>
+                                        <span class="help-block"
+                                            *ngIf="accountTypeControl.invalid && accountTypeControl.touched">
+                                            AccountType is required
+                                        </span>
+                                    </div>
+
+                                    <div class="form-group"
+                                        [class.has-error]="balanceControl.invalid && balanceControl.touched"
+                                        [class.has-success]="balanceControl.valid">
+                                        <label for="balance">Balance</label>
+                                        <input id="balance" type="text" class="form-control" name="balance"
+                                            [(ngModel)]="balance" #balanceControl="ngModel" required>
+                                        <span class="help-block"
+                                            *ngIf="balanceControl.invalid && balanceControl.touched">
+                                            Balance is required
+                                        </span>
+                                    </div>
+
+                                    <div class="form-group"
+                                        [class.has-error]="lastTransactionTimeControl.invalid && lastTransactionTimeControl.touched"
+                                        [class.has-success]="lastTransactionTimeControl.valid">
+                                        <label for="lastTransactionTime">LastTransactionTime</label>
+                                        <input id="lastTransactionTime" type="text" class="form-control"
+                                            name="lastTransactionTime" [(ngModel)]="lastTransactionTime"
+                                            #lastTransactionTimeControl="ngModel" required>
+                                        <span class="help-block"
+                                            *ngIf="lastTransactionTimeControl.invalid && lastTransactionTimeControl.touched">
+                                            lastTransactionTime is required
+                                        </span>
+                                    </div>
+
+                                    <div class="form-group"
+                                        [class.has-error]="lastTransactionDateControl.invalid && lastTransactionDateControl.touched"
+                                        [class.has-success]="lastTransactionDateControl.valid">
+                                        <label for="lastTransactionDate">LastTransactionDate</label>
+                                        <input id="lastTransactionDate" type="text" class="form-control"
+                                            name="lastTransactionDate" [(ngModel)]="lastTransactionDate"
+                                            #lastTransactionDateControl="ngModel" required>
+                                        <span class="help-block"
+                                            *ngIf="lastTransactionDateControl.invalid && lastTransactionDateControl.touched">
+                                            lastTransactionDate is required
+                                        </span>
+                                    </div>
+
+                                </div>
+                                <div class="panel-footer">
+                                    <button class="btn btn-primary" type="submit"
+                                        [disabled]="addAccountDetailsForm.invalid">Save</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+</div>

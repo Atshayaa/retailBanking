@@ -1,0 +1,8 @@
+.vertical-align{
+    display: flex;
+    align-items: center;
+}
+.register-wrapper {
+    margin : 3rem auto;
+    width : 25rem;
+}

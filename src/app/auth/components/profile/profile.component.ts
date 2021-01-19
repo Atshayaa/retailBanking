@@ -3,11 +3,11 @@ import { Register } from '../../models/register.module';
 import { userRegistrationService } from '../userRegistration/userRegistration.service';
 
 @Component({
-  selector: 'app-user-page',
-  templateUrl: './user-page.component.html',
-  styleUrls: ['./user-page.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class UserPageComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
   public name = "User1";
   registers : Register[];

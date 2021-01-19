@@ -1,54 +1,90 @@
-<div class = "register-wrapper">
-    <div class="card">
-    <div class="card-body">
-<div class="panel panel-primary" *ngFor="let register of registers">
-<div class="panel-heading">
-    <h3 class="panel-title">{{register.fullName}}</h3>
-  </div>
-  <div class="panel-body">
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Hii Admin</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+    data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+  <a class="navbar-brand  col-lg-2   mr-0  px-3 " href="../adminpage">Back</a>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" href="../login">Sign out</a>
+    </li>
+  </ul>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="sidebar-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="../addUsers">
+              <span data-feather="home"></span>
+              Add User <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../listuser">
+              <span data-feather="file"></span>
+              List of users
+            </a>
+          </li>
 
-    <div class="col-xs-10">
+        </ul>
+      </div>
+    </nav>
 
-      <!-- <div class="row vertical-align"> -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+      <div class="register-wrapper">
+        <div class="card">
+          <div class="card-body">
+            <div class="panel panel-primary" *ngFor="let register of registers">
+              <div class="panel-heading">
+                <h3 class="panel-title">{{register.fullName}}</h3>
+              </div>
+              <div class="panel-body">
 
-        <!-- <div class="col-xs-3">
-          <img class="imageClass" [src]="register.photoPath" />
-        </div> -->
-        <div class="col-xs-9">
+                <div class="col-xs-10">
 
-          <div class="row">
-            <div class="col-xs-6">
-                fullName
-            </div>
-            <div class="col-xs-6">
-              : {{register.fullName}}
+
+                  <div class="col-xs-9">
+
+                    <div class="row">
+                      <div class="col-xs-6">
+                        fullName
+                      </div>
+                      <div class="col-xs-6">
+                        : {{register.fullName}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        userId
+                      </div>
+                      <div class="col-xs-6">
+                        : {{register.userId }}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        email
+                      </div>
+                      <div class="col-xs-6">
+                        : {{register.email}}
+                      </div>
+                    </div>
+
+
+
+                  </div>
+
+
+                </div>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-xs-6">
-                userId
-            </div>
-            <div class="col-xs-6">
-              : {{register.userId }}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
-                email
-            </div>
-            <div class="col-xs-6">
-              : {{register.email}}
-            </div>
-          </div>
-          
-          
-
         </div>
-
-      <!-- </div> -->
-    </div>
+      </div>
+    </main>
   </div>
-</div>
-</div>
-</div>
 </div>

@@ -1,91 +1,114 @@
-<!-- <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand" >Retail Banking</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarsExample02">
-      <ul class="navbar-nav mr-auto">
-        
-        <li class="nav-item active">
-          <a class="nav-link" href="../login">Login <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../register">Register</a>
-        </li>
-      </ul>
-    </div> 
-  </nav> -->
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Hii Admin</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+    data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+  <a class="navbar-brand  col-lg-2   mr-0  px-3 " href="../adminpage">Back</a>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" href="../login">Sign out</a>
+    </li>
+  </ul>
+</nav>
 
-  <!-- <app-admin-page></app-admin-page> -->
-  
-  <div class = "register-wrapper">
-      <div class="card">
-      <div class="card-body">
-  
-        <form  #registerForm="ngForm" (ngSubmit)="saveRegister(registerForm)">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">Add User</h3>
-              </div>
-              <div class="panel-body">
-          
-                <div class="form-group"  [class.has-error]="fullNameControl.invalid && fullNameControl.touched" [class.has-success]="fullNameControl.valid">
-                  <label for="fullName">Full Name</label>
-                  <input id="fullName" type="text" class="form-control"
-                         name="fullName" [(ngModel)]="fullName"  #fullNameControl="ngModel" required>
-                  <span class="help-block"
-                         *ngIf="fullNameControl.invalid && fullNameControl.touched">
-                     Full Name is required
-                   </span>       
+
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="sidebar-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="../addUsers">
+              <span data-feather="home"></span>
+              Add User <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../listuser">
+              <span data-feather="file"></span>
+              List of users
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+      <div class="register-wrapper">
+        <div class="card">
+          <div class="card-body">
+
+            <form #registerForm="ngForm" (ngSubmit)="saveRegister(registerForm)">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Add User</h3>
                 </div>
-        
-                <div class="form-group" [class.has-error]="userIdControl.invalid && userIdControl.touched" [class.has-success]="userIdControl.valid">
+                <div class="panel-body">
+
+                  <div class="form-group" [class.has-error]="fullNameControl.invalid && fullNameControl.touched"
+                    [class.has-success]="fullNameControl.valid">
+                    <label for="fullName">Full Name</label>
+                    <input id="fullName" type="text" class="form-control" name="fullName" [(ngModel)]="fullName"
+                      #fullNameControl="ngModel" required>
+                    <span class="help-block" *ngIf="fullNameControl.invalid && fullNameControl.touched">
+                      Full Name is required
+                    </span>
+                  </div>
+
+                  <div class="form-group" [class.has-error]="userIdControl.invalid && userIdControl.touched"
+                    [class.has-success]="userIdControl.valid">
                     <label for="userId">User Id</label>
-                    <input id="userId" type="number" class="form-control"
-                           name="userId" [(ngModel)]="userId" #userIdControl="ngModel" required>
-                           <span class="help-block"
-                         *ngIf="userIdControl.invalid && userIdControl.touched">
-                         User Id is required
-                   </span> 
-                </div>
-          
-                <div class="form-group" [class.has-error]="emailControl.invalid && emailControl.touched" [class.has-success]="emailControl.valid">
+                    <input id="userId" type="number" class="form-control" name="userId" [(ngModel)]="userId"
+                      #userIdControl="ngModel" required>
+                    <span class="help-block" *ngIf="userIdControl.invalid && userIdControl.touched">
+                      User Id is required
+                    </span>
+                  </div>
+
+                  <div class="form-group" [class.has-error]="emailControl.invalid && emailControl.touched"
+                    [class.has-success]="emailControl.valid">
                     <label for="email">Email</label>
-                    <input id="email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" type="text" class="form-control"
-                           name="email" [(ngModel)]="email" #emailControl="ngModel" required>
-                           <span class="help-block"
-                           *ngIf="emailControl.errors?.required && emailControl.touched">
-                           Email is required
-                     </span> 
-                     <span class="help-block" *ngIf="emailControl.errors?.pattern && emailControl.touched">
+                    <input id="email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" type="text"
+                      class="form-control" name="email" [(ngModel)]="email" #emailControl="ngModel" required>
+                    <span class="help-block" *ngIf="emailControl.errors?.required && emailControl.touched">
+                      Email is required
+                    </span>
+                    <span class="help-block" *ngIf="emailControl.errors?.pattern && emailControl.touched">
                       Email is Invalid
                     </span>
                   </div>
-        
-                <div class="form-group" [class.has-error]="passwordControl.invalid && passwordControl.touched" [class.has-success]="passwordControl.valid">
+
+                  <div class="form-group" [class.has-error]="passwordControl.invalid && passwordControl.touched"
+                    [class.has-success]="passwordControl.valid">
                     <label for="password">Password</label>
-                    <input id="password" pattern="^[a-z]+[A-Z]+[0-9]" type="text" class="form-control"
-                           name="password" [(ngModel)]="password" #passwordControl="ngModel" required>
-                           <span class="help-block"
-                           *ngIf="passwordControl.errors?.required && passwordControl.touched">
-                         Password is required
-                   </span> 
-                   <span class="help-block" *ngIf="passwordControl.errors?.pattern && passwordControl.touched">
-                    Password should contain lowercase, uppercase and a number
-                  </span>
+                    <input id="password" pattern="^[a-z]+[A-Z]+[0-9]" type="text" class="form-control" name="password"
+                      [(ngModel)]="password" #passwordControl="ngModel" required>
+                    <span class="help-block" *ngIf="passwordControl.errors?.required && passwordControl.touched">
+                      Password is required
+                    </span>
+                    <span class="help-block" *ngIf="passwordControl.errors?.pattern && passwordControl.touched">
+                      Password should contain lowercase, uppercase and a number
+                    </span>
+                  </div>
+                  <a class="navbar-brand  col-lg-2   mr-0  px-3 " href="../addAccountDetails">Add Account Details</a>
                 </div>
-          
+                <div class="panel-footer">
+                  <button class="btn btn-primary" type="submit" [disabled]="registerForm.invalid">Save</button>
+                </div>
               </div>
-              <div class="panel-footer">
-                <button class="btn btn-primary" type="submit" [disabled]="registerForm.invalid">Save</button>
-              </div>
-            </div>
-          </form>
-        
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
   </div>
-  </div>
-  </div>
-  
-  
-    {{registerForm.value | json}}
+</div>
+
+{{registerForm.value | json}}
