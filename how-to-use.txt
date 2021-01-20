@@ -1,0 +1,13 @@
+How to use
+----------
+
+ 1. Click in the Login link.
+ 2. Provide the below credentials to login
+     Userid : 1
+     Password : Admin@hcl
+
+     or
+     Userid : 2
+     Password : User1@hcl
+
+     

@@ -25,6 +25,9 @@ export class LoginComponent implements OnInit {
     else if("2" === loginForm.value.userId || "User1@hcl"=== loginForm.value.password){
       this.router.navigate(['userpage']);
     }
+    else {
+      console.log ("User ID and Password does not match")
+    }
   }
 
   //  onSubmit(signInForm: NgForm) {
